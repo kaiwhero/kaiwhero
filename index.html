@@ -64,13 +64,18 @@
                                 <div class="v-thumb active" data-cat="ref" style="background-image: url('imagens/refsheetdelux2.png');" onclick="changeImage(this, 'imagens/refsheetdelux2.png')"></div>
                                 <div class="v-thumb active" data-cat="ref" style="background-image: url('imagens/simpleref1.jpg');" onclick="changeImage(this, 'imagens/simpleref1.jpg')"></div>
                                 <div class="v-thumb active" data-cat="ref" style="background-image: url('imagens/simpleref2.png');" onclick="changeImage(this, 'imagens/simpleref2.png')"></div>
+
+                                
+
                             </div>
                         </div>
                     </div>
 
+                 
+
                     <div id="page-commission" class="page-content">
-                        <!-- ALTERADO: Configurado para o sistema de formulários nativo do Netlify -->
-                        <form id="vgen-intake-form" name="comissoes-kaiwhero" method="POST" data-netlify="true" action="/formspree-success.html">
+                        <form id="vgen-intake-form" action="https://formspree.io/f/mzdwjgrn" method="POST">
+                            <input type="hidden" name="_next" value="formspree-success.html">
                             
                             <div class="vgen-layout">
                                 
@@ -105,7 +110,7 @@
                                                 <div class="vgen-select-wrapper">
                                                     <label>Commission Size / Options *</label>
                                                     <select id="vgen-size" name="Commission Size" onchange="calculateTotal()">
-                                                    </select>
+                                                        </select>
                                                 </div>
                                                 <div id="vgen-size-price-addon" class="vgen-price-tag">+$0.00</div>
                                             </div>
@@ -299,13 +304,14 @@
                 <div class="widget-box queue-box">
                     <div class="widget-title">queue</div>
                     <div class="queue-items-container">
-                        <div class="queue-slot"><div class="slot-title"><span>01. Mackenzie/Annie</span> <span class="slot-status">working</span></div></div>
-                        <div class="queue-slot"><div class="slot-title"><span>02. Crown</span> <span class="slot-status">working</span></div></div>
-                        <div class="queue-slot"><div class="slot-title"><span>03. aurakine_</span> <span class="slot-status">waiting</span></div></div>
-                        <div class="queue-slot"><div class="slot-title"><span>04. Echo</span> <span class="slot-status">waiting</span></div></div>
-                        <div class="queue-slot"><div class="slot-title"><span>05. Leona Snoh</span> <span class="slot-status">waiting</span></div></div>
-                        <div class="queue-slot"><div class="slot-title"><span>06. Zero M</span> <span class="slot-status">waiting</span></div></div>
-                        <div class="queue-slot"><div class="slot-title"><span>07. Zero chance</span> <span class="slot-status">waiting</span></div></div>
+                    <div class="queue-slot"><div class="slot-title"><span>01. Mackenzie/Annie</span> <span class="slot-status";>working</span></div></div>
+                    <div class="queue-slot"><div class="slot-title"><span>02. nera_piuma</span> <span class="slot-status">working</span></div></div>
+                    <div class="queue-slot"><div class="slot-title"><span>03. Crown</span> <span class="slot-status">waiting</span></div></div>
+                    <div class="queue-slot"><div class="slot-title"><span>04. aurakine_</span> <span class="slot-status" >waiting</span></div></div>
+                    <div class="queue-slot"><div class="slot-title"><span>05. Echo</span> <span class="slot-status" >waiting</span></div></div>
+                    <div class="queue-slot"><div class="slot-title"><span>06. Leona Snoh</span> <span class="slot-status">waiting</span></div></div>
+                    <div class="queue-slot"><div class="slot-title"><span>07. Zero M</span> <span class="slot-status" >waiting</span></div></div>
+                    <div class="queue-slot"><div class="slot-title"><span>08. Zero chance</span> <span class="slot-status" >waiting</span></div></div>
                     </div>
                 </div>
             </aside>
