@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaiwhero Interface</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="site-wrapper">
+        <div id="canvas-retro">
+            
+            <a href="#" class="left-banner">
+                <img src="imagens/Illustration784.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="Banner" class="char-img-placeholder">
+                
+                <div class="banner-text">KAIWHERO</div>
+            </a>
+
+            <div class="center-stage">
+                
+                <nav class="navbar">
+                    <div id="nav-home" class="nav-item active" onclick="switchTab('home')">home</div>
+                    <div id="nav-gallery" class="nav-item" onclick="switchTab('gallery')">gallery</div>
+                    <div id="nav-ychs" class="nav-item" onclick="switchTab('ychs')">ychs</div>
+                    <div id="nav-commission" class="nav-item" onclick="switchTab('commission')">commissions</div>
+                    <div id="nav-contact" class="nav-item" onclick="switchTab('contact')">contact</div>
+                </nav>
+
+                <main id="main-window">
+                    
+                    <div id="page-home" class="page-content active">
+                        <div class="section-title">― welcome ―</div>
+                        <p class="home-intro">
+                            WIP<br>
+                            I have a open species project too, please check it out <a href="https://nektoprimal.neocities.org/" target="_blank" style="color: #ffffff;">nektoprirmal</a> <br>
+                            I also have a <a href="https://www.patreon.com/kaiwhero" target="_blank" style="color: #ffffff;">patreon</a> where I post exclusive content and updates about my work, feel free to check it out if you want to support me and get access to some cool perks!<br>
+                            For commissions, please check the commissions tab for more info and to fill out the intake form         <br>    
+                        <br>
+                        <br>     
+                            my comms are closed, but you can register a request at the commissions tab and i will contact you when I open again           </p>
+                    </div>
+
+                    <div id="page-gallery" class="page-content">
+                        <div class="section-title">― gallery showcase ―</div>
+                        <div class="gallery-container">
+                            <div class="gallery-stage">
+                                <img id="main-view" src="imagens/icon1.png" alt="Stage">
+                                <div class="gallery-filters-sub">
+                                    <span class="active" onclick="filterGallery(event, 'all')">[all]</span>
+                                    <span onclick="filterGallery(event, 'icons')">[icons]</span>
+                                    <span onclick="filterGallery(event, 'half')">[half]</span>
+                                    <span onclick="filterGallery(event, 'full')">[full]</span>
+                                    <span onclick="filterGallery(event, 'ref')">[refs]</span>
+                                </div>
+                            </div>
+                            <div class="gallery-thumbs-vertical">
+                                <div class="v-thumb active" data-cat="icons" style="background-image: url('imagens/icon1.png');" onclick="changeImage(this, 'imagens/icon1.png')"></div>
+                                <div class="v-thumb active" data-cat="icons" style="background-image: url('imagens/icon2.png');" onclick="changeImage(this, 'imagens/icon2.png')"></div>
+                                <div class="v-thumb active" data-cat="half" style="background-image: url('imagens/halfbody1.png');" onclick="changeImage(this, 'imagens/halfbody1.png')"></div>
+                                <div class="v-thumb active" data-cat="half" style="background-image: url('imagens/halfbody2.png');" onclick="changeImage(this, 'imagens/halfbody2.png')"></div>
+                                <div class="v-thumb active" data-cat="full" style="background-image: url('imagens/fullbody1.png');" onclick="changeImage(this, 'imagens/fullbody1.png')"></div>
+                                <div class="v-thumb active" data-cat="full" style="background-image: url('imagens/fullbody2.png');" onclick="changeImage(this, 'imagens/fullbody2.png')"></div>
+                                <div class="v-thumb active" data-cat="ref" style="background-image: url('imagens/refsheetdelux1.png');" onclick="changeImage(this, 'imagens/refsheetdelux1.png')"></div>
+                                <div class="v-thumb active" data-cat="ref" style="background-image: url('imagens/refsheetdelux2.png');" onclick="changeImage(this, 'imagens/refsheetdelux2.png')"></div>
+                                <div class="v-thumb active" data-cat="ref" style="background-image: url('imagens/simpleref1.jpg');" onclick="changeImage(this, 'imagens/simpleref1.jpg')"></div>
+                                <div class="v-thumb active" data-cat="ref" style="background-image: url('imagens/simpleref2.png');" onclick="changeImage(this, 'imagens/simpleref2.png')"></div>
+
+                                
+
+                            </div>
+                        </div>
+                    </div>
+
+                 
+
+                    <div id="page-commission" class="page-content">
+                        <form id="vgen-intake-form" action="https://formspree.io/f/mzdwjgrn" method="POST">
+                            <input type="hidden" name="_next" value="formspree-success.html">
+                            
+                            <div class="vgen-layout">
+                                
+                                <div class="vgen-steps-nav">
+                                    <div id="step-tab-1" class="vgen-step-item active">Commission</div>
+                                    <div id="step-tab-2" class="vgen-step-item">Contact</div>
+                                    <div id="step-tab-3" class="vgen-step-item">Commission Details</div>
+                                    <div id="step-tab-4" class="vgen-step-item">Technical Details</div>
+                                </div>
+
+                                <div class="vgen-steps-content">
+
+                                    <div id="vgen-step-pane-1" class="vgen-step-pane active">
+                                        <span class="vgen-section-label">Commission</span>
+                                        
+                                        <div class="vgen-field-group">
+                                            <div class="vgen-select-wrapper">
+                                                <label>Commission Type *</label>
+                                                <select id="vgen-type" name="Commission Type" onchange="handleTypeChange()">
+                                                    <option value="" disabled selected hidden></option>
+                                                    <option value="sketches">Sketches</option>
+                                                    <option value="flat">Flat Colors</option>
+                                                    <option value="render">Fully Rendered</option>
+                                                    <option value="refsheet">Reference Sheet</option>
+                                                </select>
+                                            </div>
+                                            <span class="vgen-subtext">Changing this may lose data on the form</span>
+                                        </div>
+
+                                        <div id="vgen-size-area" class="vgen-field-group">
+                                            <div class="vgen-row-align">
+                                                <div class="vgen-select-wrapper">
+                                                    <label>Commission Size / Options *</label>
+                                                    <select id="vgen-size" name="Commission Size" onchange="calculateTotal()">
+                                                        </select>
+                                                </div>
+                                                <div id="vgen-size-price-addon" class="vgen-price-tag">+$0.00</div>
+                                            </div>
+                                        </div>
+
+                                        <hr class="vgen-divider">
+
+                                        <span class="vgen-section-label">Add ons <span id="vgen-addons-global-price" style="float: right; color: #888;">+$0.00</span></span>
+                                        
+                                        <div id="vgen-addons-area" class="vgen-addons-grid">
+                                            <div id="addon-card-char" class="vgen-addon-card addon-normal" onclick="toggleAddonCard('char')">
+                                                <div class="vgen-addon-info">
+                                                    <h4>Extra Character</h4>
+                                                    <p>80% extra</p>
+                                                    <div id="vgen-addon-calculated-badge-char" class="vgen-addon-badge">+$0.00</div>
+                                                </div>
+                                                <div class="vgen-checkbox-dummy"></div>
+                                            </div>
+                                            <input type="hidden" id="vgen-addon-input-char" name="Addon: Extra Character" value="No">
+
+                                            <div id="addon-card-bg" class="vgen-addon-card addon-normal" onclick="toggleAddonCard('bg')">
+                                                <div class="vgen-addon-info">
+                                                    <h4>Background</h4>
+                                                    <p>Complex Scenery</p>
+                                                    <div id="vgen-addon-calculated-badge-bg" class="vgen-addon-badge">+$0.00</div>
+                                                </div>
+                                                <div class="vgen-checkbox-dummy"></div>
+                                            </div>
+                                            <input type="hidden" id="vgen-addon-input-bg" name="Addon: Background" value="No">
+
+                                            <div id="addon-card-variants" class="vgen-addon-card addon-normal" onclick="toggleAddonCard('variants')">
+                                                <div class="vgen-addon-info">
+                                                    <h4>Versões Extras</h4>
+                                                    <p>Expression / Outfit variants</p>
+                                                    <div id="vgen-addon-calculated-badge-variants" class="vgen-addon-badge">+$0.00</div>
+                                                </div>
+                                                <div class="vgen-checkbox-dummy"></div>
+                                            </div>
+                                            <input type="hidden" id="vgen-addon-input-variants" name="Addon: Versoes Extras" value="No">
+
+                                            <div id="addon-card-basic" class="vgen-addon-card addon-ref-exclusive" onclick="toggleAddonCard('basic')">
+                                                <div class="vgen-addon-info">
+                                                    <h4>Close-up & Expressions</h4>
+                                                    <p>Extra detailing headshots</p>
+                                                    <div id="vgen-addon-calculated-badge-basic" class="vgen-addon-badge">+$0.00</div>
+                                                </div>
+                                                <div class="vgen-checkbox-dummy"></div>
+                                            </div>
+                                            <input type="hidden" id="vgen-addon-input-basic" name="Addon: Ref Basic CloseUp" value="No">
+
+                                            <div id="addon-card-complete" class="vgen-addon-card addon-ref-exclusive" onclick="toggleAddonCard('complete')">
+                                                <div class="vgen-addon-info">
+                                                    <h4>Extra Outfits</h4>
+                                                    <p>Additional wardrobe reference</p>
+                                                    <div id="vgen-addon-calculated-badge-complete" class="vgen-addon-badge">+$0.00</div>
+                                                </div>
+                                                <div class="vgen-checkbox-dummy"></div>
+                                            </div>
+                                            <input type="hidden" id="vgen-addon-input-complete" name="Addon: Ref Extra Outfits" value="No">
+                                        </div>
+
+                                        <div id="vgen-addons-placeholder" class="vgen-placeholder-text-small">
+                                            Select a Commission Type to view the Add ons
+                                        </div>
+                                    </div>
+
+                                    <div id="vgen-step-pane-2" class="vgen-step-pane">
+                                        <span class="vgen-section-label">Contact</span>
+                                        
+                                        <div class="vgen-contact-row">
+                                            <div class="vgen-select-wrapper" style="flex: 0 0 160px;">
+                                                <label>Preferred Contact Method *</label>
+                                                <select name="Preferred Contact Method" id="vgen-pref-contact">
+                                                    <option value="Telegram">Telegram</option>
+                                                    <option value="Discord">Discord</option>
+                                                    <option value="Twitter">Twitter / X</option>
+                                                    <option value="Email">Email</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="vgen-input-container">
+                                                <label>Contact *</label>
+                                                <input type="text" class="vgen-input-field" name="Contact Username" placeholder="your_handle" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="vgen-input-container">
+                                            <label>Paypal Email *</label>
+                                            <input type="email" class="vgen-input-field" name="Paypal Email" placeholder="email@domain.com" required>
+                                        </div>
+                                    </div>
+
+                                    <div id="vgen-step-pane-3" class="vgen-step-pane">
+                                        <span class="vgen-section-label">Commission Details</span>
+
+                                        <div class="vgen-textarea-container">
+                                            <label>Character Reference</label>
+                                            <textarea class="vgen-textarea-field" name="Character Reference" placeholder="Please provide images, links, or description of your character"></textarea>
+                                        </div>
+
+                                        <div class="vgen-textarea-container">
+                                            <label>Scene & Mood Preference</label>
+                                            <textarea class="vgen-textarea-field" name="Scene Mood Preference" placeholder=""></textarea>
+                                            <div class="vgen-input-desc">
+                                                Optional<br>
+                                                - Setting/Background: (e.g., Forest, Valley, city, desert...)<br>
+                                                - Mood (e.g., Melancholic, hopeful, eerie)<br>
+                                                - Pose/Action of Character (e.g., sitting and looking out, interacting with objects)<br>
+                                                - Time of Day/Lighting (e.g., midday/full noon, sunset, sunrise, neon city)
+                                            </div>
+                                        </div>
+
+                                        <div class="vgen-textarea-container">
+                                            <label>Any Inspiration</label>
+                                            <textarea class="vgen-textarea-field" name="Any Inspiration" placeholder=""></textarea>
+                                            <div class="vgen-input-desc">
+                                                Is there a favorite art piece or studio you love?<br>
+                                                Do you have a mood board?<br>
+                                                Certain shows or movies you love?<br>
+                                                Any Aesthetics you like? (e.g., cottage core, solarpunk, cyberpunk, dark fantasy)
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="vgen-step-pane-4" class="vgen-step-pane">
+                                        <span class="vgen-section-label">Technical Details</span>
+                                        
+                                        <div class="vgen-select-wrapper" style="margin-bottom: 20px;">
+                                            <label>Commercial Use License *</label>
+                                            <select id="vgen-commercial" name="Commercial License">
+                                                <option value="0">Personal Use Only ($0.00)</option>
+                                                <option value="0.5">Commercial Use (+50% of total)</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="vgen-textarea-container">
+                                            <label>Additional Notes / Deadline</label>
+                                            <textarea class="vgen-textarea-field" name="Technical Notes" placeholder="Any final details or specific Canvas size requirements..."></textarea>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="vgen-total-section">
+                                <h3>Estimated Total Price:</h3>
+                                <div id="vgen-total" class="vgen-total-price">$0.00</div>
+                            </div>
+
+                            <div class="vgen-actions">
+                                <button type="button" id="vgen-back-btn" class="vgen-btn" onclick="moveStep(-1)">Back</button>
+                                <button type="button" id="vgen-next-btn" class="vgen-btn" onclick="moveStep(1)">Next</button>
+                            </div>
+
+                        </form>
+                        
+                    </div>
+
+                    <div id="page-contact" class="page-content">
+                        <div class="section-title">― secure channels ―</div>
+                        <div class="contact-channels">
+                            <div class="channel-box">Telegram: <a href="https://t.me/kaiwhero">@kaiwhero</a></div>
+                            <div class="channel-box">Discord: kawaiihero.</div>
+                        </div>
+                    </div>
+
+                </main>
+            </div>
+
+            <aside class="sidebar-widgets">
+                <div class="widget-box profile-widget">
+                    <div class="profile-avatar"></div>
+                    <div class="profile-info">
+                        <strong>Kaiwhero</strong>
+                        <span>artist</span>
+                    </div>
+                </div>
+                <div class="widget-box">
+                    <div class="widget-title">social links</div>
+                    <div class="social-grid-2x2">
+                        <a href="https://www.instagram.com/kaiwhero/" class="social-link">_ instagram</a>
+                        <a href="https://t.me/artkaiw" class="social-link">_ telegram</a>
+                        <a href="https://x.com/kaiwhero" class="social-link">_ twitter</a>
+                        <a href="https://www.patreon.com/kaiwhero" class="social-link">_ patreon</a>
+                    </div>
+                </div>
+                <div class="widget-box">
+                    <div class="widget-title">shop</div>
+                    <a href="shop.html" class="shop-widget-link">_ access market module</a>
+                </div>
+                <div class="widget-box queue-box">
+                    <div class="widget-title">queue</div>
+                    <div class="queue-items-container">
+                    <div class="queue-slot"><div class="slot-title"><span>01. Mackenzie/Annie</span> <span class="slot-status";>working</span></div></div>
+                    <div class="queue-slot"><div class="slot-title"><span>02. nera_piuma</span> <span class="slot-status">working</span></div></div>
+                    <div class="queue-slot"><div class="slot-title"><span>03. Crown</span> <span class="slot-status">waiting</span></div></div>
+                    <div class="queue-slot"><div class="slot-title"><span>04. aurakine_</span> <span class="slot-status" >waiting</span></div></div>
+                    <div class="queue-slot"><div class="slot-title"><span>05. Echo</span> <span class="slot-status" >waiting</span></div></div>
+                    <div class="queue-slot"><div class="slot-title"><span>06. Leona Snoh</span> <span class="slot-status">waiting</span></div></div>
+                    <div class="queue-slot"><div class="slot-title"><span>07. Zero M</span> <span class="slot-status" >waiting</span></div></div>
+                    <div class="queue-slot"><div class="slot-title"><span>08. Zero chance</span> <span class="slot-status" >waiting</span></div></div>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
