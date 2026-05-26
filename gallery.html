@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body { background: #000; margin: 0; display: flex; gap: 15px; height: 100vh; overflow: hidden; }
+
+    /* O Stage grande */
+    #stage { 
+        flex: 1; 
+        border: 1px solid #333; 
+        display: flex; align-items: center; justify-content: center;
+        color: #444; font-family: monospace; font-size: 12px;
+    }
+
+    /* Coluna das Thumbs (da direita) */
+    .thumbs { width: 80px; display: flex; flex-direction: column; gap: 10px; }
+    .thumb { 
+        width: 80px; height: 80px; 
+        border: 1px solid #333; cursor: pointer;
+        transition: 0.2s;
+    }
+    .thumb:hover { border-color: #ff0033; }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; }
+</style>
+</head>
+<body>
+
+    <div id="stage">Stage</div>
+    
+    <div class="thumbs">
+        <div class="thumb" onclick="document.getElementById('stage').innerHTML='<img src=\'img1.jpg\' style=\'max-width:100%\'>'">
+            <img src="img1.jpg">
+        </div>
+        <div class="thumb" onclick="document.getElementById('stage').innerHTML='<img src=\'img2.jpg\' style=\'max-width:100%\'>'">
+            <img src="img2.jpg">
+        </div>
+    </div>
+
+</body>
+</html>

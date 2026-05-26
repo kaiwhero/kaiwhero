@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* Estilos base do site */
+        body {
+            background-color: #000000;
+            color: #aaa;
+            font-family: 'Share Tech Mono', monospace;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Container principal que segue o estilo do site */
+        .page-content {
+            width: 90%;
+            max-width: 800px;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .section-title {
+            color: #fff;
+            margin-bottom: 40px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #222;
+            padding-bottom: 10px;
+        }
+
+        /* Ajustes do WIP */
+        .wip-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            border: 1px dashed #222;
+        }
+
+        .wip-text {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 2.5rem;
+            color: #ff0033;
+            text-shadow: 0 0 10px #ff0033, 0 0 20px #ff0033;
+            animation: blink-neon 1.5s infinite alternate;
+        }
+
+        @keyframes blink-neon {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        /* Botão de Back */
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            color: #555;
+            text-decoration: none;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 1px solid #222;
+            padding: 8px 16px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            color: #ff0033;
+            border-color: #ff0033;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-content">
+        <div class="section-title">― market module ―</div>
+        
+        <div class="wip-container">
+            <div class="wip-text">WORK IN PROGRESS</div>
+        </div>
+
+        <a href="index.html" class="back-btn">← back to base</a>
+    </div>
+
+</body>
+</html>

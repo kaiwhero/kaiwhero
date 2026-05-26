@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commissions</title>
+    <style>
+        /* 1. CONFIGURAÇÕES GERAIS (ESTILO DARK MONOCHROME) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* 2. CONTAINER DO FORMULÁRIO */
+        .form-container {
+            width: 850px;
+            background-color: #1d1d1d;
+            border: 1px solid #333;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Título do Painel */
+        .form-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid #333;
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #ff0055;
+        }
+
+        /* Corpo Central dividido (Abas na Esquerda, Conteúdo na Direita) */
+        .form-body {
+            display: flex;
+            min-height: 400px;
+        }
+
+        /* 3. MENU LATERAL DE ABAS (TABS) */
+        .form-tabs {
+            width: 30%;
+            background-color: #161616;
+            border-right: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: #888;
+            padding: 18px 20px;
+            text-align: left;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .tab-btn:hover {
+            background-color: #1f1f1f;
+            color: #fff;
+        }
+
+        .tab-btn.active {
+            background-color: #1d1d1d;
+            color: #fff;
+            border-left: 3px solid #ff0055; /* Indicador luminoso da aba ativa */
+        }
+
+        /* 4. CONTEÚDO DAS ABAS (PAINÉIS) */
+        .form-content {
+            width: 70%;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .tab-panel {
+            display: none; /* Escondido por padrão */
+        }
+
+        .tab-panel.active {
+            display: block; /* Mostra apenas a ativa */
+        }
+
+        /* Elementos Internos: Labels e Selects */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.8rem;
+            color: #aaa;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        select {
+            width: 100%;
+            background-color: #121212;
+            border: 1px solid #444;
+            color: #fff;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        select:focus {
+            border-color: #ff0055;
+        }
+
+        /* 5. ÁREA DE CARD (ADD-ONS / EXTRAS) */
+        .section-title {
+            font-size: 1.1rem;
+            margin: 24px 0 12px 0;
+            color: #fff;
+            border-bottom: 1px solid #333;
+            padding-bottom: 8px;
+        }
+
+        .addon-card {
+            background-color: #161616;
+            border: 1px solid #333;
+            border-radius: 6px;
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .addon-info h4 {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .addon-info p {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .addon-action {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .price-badge {
+            background-color: #252525;
+            color: #ff0055;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border: 1px solid #3a101e;
+        }
+
+        /* Checkbox Customizado */
+        input[type="checkbox"] {
+            accent-color: #ff0055;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        /* 6. TOTALIZADOR E BOTÕES DE NAVEGAÇÃO */
+        .total-box { 
+            background-color: #161616;
+            border-top: 1px solid #333;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .total-label {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .total-price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .form-footer {
+            padding: 16px 24px;
+            border-top: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            background-color: #191919;
+        }
+
+        .btn {
+            background: none;
+            border: 1px solid #444;
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .btn:hover:not(:disabled) {
+            border-color: #ff0055;
+            color: #ff0055;
+        }
+
+        .btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <div class="form-header">Formulário de Pedido</div>
+        
+        <div class="form-body">
+            
+            <div class="form-tabs">
+                <button class="tab-btn active" onclick="switchTab(event, 'tab-commission')">Commission</button>
+                <button class="tab-btn" onclick="switchTab(event, 'tab-contact')">Contact</button>
+                <button class="tab-btn" onclick="switchTab(event, 'tab-details')">Details</button>
+                <button class="tab-btn" onclick="switchTab(event, 'tab-technical')">Technical</button>
+            </div>
+
+            <div class="form-content">
+                
+                <div id="tab-commission" class="tab-panel active">
+                    <div class="form-group">
+                        <label for="type">Commission Type *</label>
+                        <select id="type">
+                            <option value="sketches">Sketches (Esboços)</option>
+                            <option value="flatcolor">Flat Color</option>
+                            <option value="fullrender">Full Render</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="size">Commission Size *</label>
+                        <select id="size">
+                            <option value="40">Headshot (Busto) - $40.00</option>
+                            <option value="60">Half Body (Meio Corpo) - $60.00</option>
+                            <option value="80">Full Body (Corpo Inteiro) - $80.00</option>
+                        </select>
+                    </div>
+
+                    <h3 class="section-title">Add Ons (Adicionais)</h3>
+                    
+                    <div class="addon-card">
+                        <div class="addon-info">
+                            <h4>Extra Character</h4>
+                            <p>Adiciona um personagem extra (+80% do valor base)</p>
+                        </div>
+                        <div class="addon-action">
+                            <span class="price-badge">+$32.00</span>
+                            <input type="checkbox" id="addon-extra">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-contact" class="tab-panel">
+                    <div class="form-group">
+                        <label>Seu Nome / Nickname *</label>
+                        <select disabled>
+                            <option>Área de contato em desenvolvimento...</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="tab-details" class="tab-panel">
+                    <h3 class="section-title">Detalhes Visuais</h3>
+                    <p style="color: #666; font-size: 0.9rem;">Insira aqui as referências visuais do seu pedido.</p>
+                </div>
+
+                <div id="tab-technical" class="tab-panel">
+                    <h3 class="section-title">Especificações Técnicas</h3>
+                    <p style="color: #666; font-size: 0.9rem;">Formatos de arquivo, resoluções e prazos de entrega.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="total-box">
+            <span class="total-label">Preço Estimado Total:</span>
+            <span class="total-price">~$40.00</span>
+        </div>
+
+        <div class="form-footer">
+            <button class="btn" id="btn-back" disabled>Back</button>
+            <button class="btn" id="btn-next">Next</button>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(event, tabId) {
+            // Remove a classe 'active' de todos os botões de aba
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Remove a classe 'active' de todos os painéis de conteúdo
+            const panels = document.querySelectorAll('.tab-panel');
+            panels.forEach(panel => panel.classList.remove('active'));
+
+            // Adiciona a classe ativa na aba clicada e no respectivo painel
+            event.currentTarget.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
