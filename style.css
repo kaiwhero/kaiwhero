@@ -1,7 +1,7 @@
 /* ==========================================================================
    1. CONFIGURAÇÕES RETRO-GÓTICAS BASE & FONTES
    ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght=700&family=Permanent+Marker&family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nosifer&family=Permanent+Marker&family=Share+Tech+Mono&display=swap');
 
 * {
     margin: 0;
@@ -18,6 +18,8 @@ html, body {
 /* 1. Ajuste no BODY para centralizar o container */
 body {
     background-color: #000000;
+    color: #aaa;
+    font-family: 'Share Tech Mono', monospace;
     display: flex;
     justify-content: center;
     padding: 20px;
@@ -26,7 +28,8 @@ body {
 
 /* 2. Container com tamanho fixo */
 #canvas-retro {
-    width: 1000px;
+    width: 100%;
+    max-width: 1000px;
     min-height: 800px;
     display: grid;
     grid-template-columns: 120px 1fr 240px; 
@@ -95,6 +98,7 @@ body {
    3. COLUNA CENTRAL: NAVBAR E MAIN WINDOW
    ========================================================================== */
 .center-stage {
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -108,6 +112,9 @@ body {
 }
 
 .nav-item {
+    background: none;
+    border: 0;
+    font-family: inherit;
     flex: 1;
     display: flex;
     align-items: center;
@@ -443,10 +450,10 @@ body {
 .gallery-stage { border: 1px solid #222; background-color: #020202; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; padding: 10px; min-height: 380px; }
 .gallery-stage img { max-width: 100%; max-height: 320px; object-fit: contain; }
 .gallery-filters-sub { position: absolute; bottom: 12px; left: 20px; display: flex; gap: 15px; font-size: 11px; }
-.gallery-filters-sub span { cursor: pointer; color: #444; }
-.gallery-filters-sub span.active, .gallery-filters-sub span:hover { color: #ffffff; }
+.gallery-filters-sub button { background: none; border: 0; font: inherit; cursor: pointer; color: #666; }
+.gallery-filters-sub button.active, .gallery-filters-sub button:hover { color: #ffffff; }
 .gallery-thumbs-vertical { display: flex; flex-direction: column; gap: 8px; overflow-y: auto; max-height: 380px; }
-.v-thumb { width: 100%; height: 55px; background-color: #0a0a0a; border: 1px solid #222; cursor: pointer; opacity: 0.3; flex-shrink: 0; background-size: cover; background-position: center; background-repeat: no-repeat; }
+.v-thumb { padding: 0; width: 100%; height: 55px; background-color: #0a0a0a; border: 1px solid #222; cursor: pointer; opacity: 0.3; flex-shrink: 0; background-size: cover; background-position: center; background-repeat: no-repeat; }
 .v-thumb.active, .v-thumb:hover { opacity: 1; border-color: #ffffff; }
 
 .contact-channels {
@@ -483,6 +490,7 @@ body {
 .queue-slot { border: 1px dashed #222; background-color: #020202; padding: 10px; font-size: 11px; }
 .queue-slot .slot-title { color: #aaa; margin-bottom: 3px; display: flex; justify-content: space-between; }
 .queue-slot .slot-status { font-size: 9px; color: #ff0033; text-transform: uppercase; }
+.queue-slot .slot-status.waiting { color: #666; }
 
 .wip-container {
     display: flex;
@@ -502,4 +510,69 @@ body {
 @keyframes blink-neon {
     0% { opacity: 0.3; }
     100% { opacity: 1; }
+}
+
+/* ==========================================================================
+   6. ACESSIBILIDADE
+   ========================================================================== */
+.vgen-contact-method { flex: 0 0 160px; }
+:focus-visible { outline: 1px solid #ff0033; outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+    .wip-text { animation: none; opacity: 1; }
+    * { transition: none !important; }
+}
+
+/* ==========================================================================
+   7. VERSÃO MOBILE / TABLET (até 820px)
+   ========================================================================== */
+@media (max-width: 820px) {
+    body { padding: 10px; }
+    #canvas-retro { grid-template-columns: 1fr; min-height: 0; }
+
+    /* Banner vira uma faixa horizontal no topo */
+    .left-banner { height: 96px; }
+    .banner-text {
+        inset: 0; top: auto; left: auto; transform: none;
+        writing-mode: horizontal-tb;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 30px; letter-spacing: 3px;
+        background: rgba(0, 0, 0, 0.45);
+    }
+
+    /* Navbar cabe em 320px+, com rolagem de segurança */
+    .navbar { height: 48px; overflow-x: auto; scrollbar-width: none; }
+    .navbar::-webkit-scrollbar { display: none; }
+    .nav-item { flex: 1 0 auto; padding: 0 8px; font-size: 10px; letter-spacing: 1px; }
+
+    #main-window { padding: 16px; }
+    .home-intro { padding: 10px 0; }
+
+    /* Galeria: thumbs viram uma tira horizontal abaixo da imagem */
+    .gallery-container { grid-template-columns: 1fr; height: auto; }
+    .gallery-stage { min-height: 280px; padding-bottom: 12px; }
+    .gallery-stage img { max-height: 60vh; }
+    .gallery-filters-sub { position: static; margin-top: 12px; flex-wrap: wrap; justify-content: center; gap: 4px 14px; }
+    .gallery-filters-sub button { padding: 6px 0; }
+    .gallery-thumbs-vertical { flex-direction: row; overflow-x: auto; overflow-y: hidden; max-height: none; padding-bottom: 6px; }
+    .v-thumb { width: 64px; height: 64px; flex: 0 0 64px; }
+
+    /* Formulário: etapas em linha no topo, campos empilhados */
+    .vgen-layout { grid-template-columns: 1fr; gap: 16px; }
+    .vgen-steps-nav { flex-direction: row; border-right: none; border-bottom: 1px solid #111; padding: 0 0 10px; gap: 4px; }
+    .vgen-step-item { flex: 1; text-align: center; font-size: 9px; padding: 8px 4px; }
+    .vgen-contact-row { flex-direction: column; gap: 15px; }
+    .vgen-contact-method { flex: none; }
+    .vgen-addon-card { max-width: none; padding: 14px 15px; }
+    .vgen-checkbox-dummy { width: 20px; height: 20px; }
+
+    /* 16px evita o zoom automático do iOS ao focar nos campos */
+    .vgen-select-wrapper select, .vgen-input-field, .vgen-textarea-field { font-size: 16px; }
+    .vgen-select-wrapper::after { top: 22px; }
+    .vgen-actions { gap: 12px; }
+    .vgen-btn { flex: 1; min-height: 44px; }
+
+    /* Sidebar fica abaixo do conteúdo, sem alturas presas */
+    .queue-box, .queue-items-container { overflow: visible; }
+    .social-link { display: block; padding: 4px 0; }
+    .wip-text { font-size: 2rem; text-align: center; }
 }

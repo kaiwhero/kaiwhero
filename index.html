@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Kaiwhero - artist portfolio, commissions and shop.">
     <title>Kaiwhero</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -20,10 +22,11 @@
             <div class="center-stage">
                 
                 <nav class="navbar">
-                    <div id="nav-home" class="nav-item active" onclick="switchTab('home')">home</div>
-                    <div id="nav-gallery" class="nav-item" onclick="switchTab('gallery')">gallery</div>
-                    <div id="nav-commission" class="nav-item" onclick="switchTab('commission')">commissions</div>
-                    <div id="nav-contact" class="nav-item" onclick="switchTab('contact')">contact</div>
+                    <button type="button" id="nav-home" class="nav-item active" onclick="switchTab('home')">home</button>
+                    <button type="button" id="nav-gallery" class="nav-item" onclick="switchTab('gallery')">gallery</button>
+                    <button type="button" id="nav-ychs" class="nav-item" onclick="switchTab('ychs')">ychs</button>
+                    <button type="button" id="nav-commission" class="nav-item" onclick="switchTab('commission')">commissions</button>
+                    <button type="button" id="nav-contact" class="nav-item" onclick="switchTab('contact')">contact</button>
                 </nav>
 
                 <main id="main-window">
@@ -32,12 +35,12 @@
                         <div class="section-title">― welcome ―</div>
                         <p class="home-intro">
                             WIP<br>
-                            I have a open species project too, please check it out <a href="https://nektoprimal.neocities.org/" target="_blank" style="color: #ffffff;">nektoprirmal</a> <br>
+                            I have an open species project too, please check it out <a href="https://nektoprimal.neocities.org/" target="_blank" style="color: #ffffff;">nektoprimal</a> <br>
                             I also have a <a href="https://www.patreon.com/kaiwhero" target="_blank" style="color: #ffffff;">patreon</a> where I post exclusive content and updates about my work, feel free to check it out if you want to support me and get access to some cool perks!<br>
-                            For commissions, please check the commissions tab for more info and to fill out the intake form         <br>  
+                            For commissions, please check the commissions tab for more info and to fill out the intake form         <br>    
                         <br>
                         <br>     
-                            my comms are closed, but you can register a request at the commissions tab and i will contact you when I open again            </p>
+                            my comms are closed, but you can register a request at the commissions tab and i will contact you when I open again           </p>
                     </div>
 
                     <div id="page-gallery" class="page-content">
@@ -46,31 +49,34 @@
                             <div class="gallery-stage">
                                 <img id="main-view" src="imagens/icon1.png" alt="Stage">
                                 <div class="gallery-filters-sub">
-                                    <span class="active" onclick="filterGallery(event, 'all')">[all]</span>
-                                    <span onclick="filterGallery(event, 'icons')">[icons]</span>
-                                    <span onclick="filterGallery(event, 'half')">[half]</span>
-                                    <span onclick="filterGallery(event, 'full')">[full]</span>
-                                    <span onclick="filterGallery(event, 'ref')">[refs]</span>
+                                    <button type="button" class="active" onclick="filterGallery(event, 'all')">[all]</button>
+                                    <button type="button" onclick="filterGallery(event, 'icons')">[icons]</button>
+                                    <button type="button" onclick="filterGallery(event, 'half')">[half]</button>
+                                    <button type="button" onclick="filterGallery(event, 'full')">[full]</button>
+                                    <button type="button" onclick="filterGallery(event, 'ref')">[refs]</button>
                                 </div>
                             </div>
                             <div class="gallery-thumbs-vertical">
-                                <div class="v-thumb active" data-cat="icons" style="background-image: url('imagens/icon1.png');" onclick="changeImage(this, 'imagens/icon1.png')"></div>
-                                <div class="v-thumb active" data-cat="icons" style="background-image: url('imagens/icon2.png');" onclick="changeImage(this, 'imagens/icon2.png')"></div>
-                                <div class="v-thumb active" data-cat="half" style="background-image: url('imagens/halfbody1.png');" onclick="changeImage(this, 'imagens/halfbody1.png')"></div>
-                                <div class="v-thumb active" data-cat="half" style="background-image: url('imagens/halfbody2.png');" onclick="changeImage(this, 'imagens/halfbody2.png')"></div>
-                                <div class="v-thumb active" data-cat="full" style="background-image: url('imagens/fullbody1.png');" onclick="changeImage(this, 'imagens/fullbody1.png')"></div>
-                                <div class="v-thumb active" data-cat="full" style="background-image: url('imagens/fullbody2.png');" onclick="changeImage(this, 'imagens/fullbody2.png')"></div>
-                                <div class="v-thumb active" data-cat="ref" style="background-image: url('imagens/refsheetdelux1.png');" onclick="changeImage(this, 'imagens/refsheetdelux1.png')"></div>
-                                <div class="v-thumb active" data-cat="ref" style="background-image: url('imagens/refsheetdelux2.png');" onclick="changeImage(this, 'imagens/refsheetdelux2.png')"></div>
-                                <div class="v-thumb active" data-cat="ref" style="background-image: url('imagens/simpleref1.jpg');" onclick="changeImage(this, 'imagens/simpleref1.jpg')"></div>
-                                <div class="v-thumb active" data-cat="ref" style="background-image: url('imagens/simpleref2.png');" onclick="changeImage(this, 'imagens/simpleref2.png')"></div>
+                                <button type="button" class="v-thumb active" data-cat="icons" style="background-image: url('imagens/icon1.png');" onclick="changeImage(this, 'imagens/icon1.png')" aria-label="View icon1.png"></button>
+                                <button type="button" class="v-thumb" data-cat="icons" style="background-image: url('imagens/icon2.png');" onclick="changeImage(this, 'imagens/icon2.png')" aria-label="View icon2.png"></button>
+                                <button type="button" class="v-thumb" data-cat="half" style="background-image: url('imagens/halfbody1.png');" onclick="changeImage(this, 'imagens/halfbody1.png')" aria-label="View halfbody1.png"></button>
+                                <button type="button" class="v-thumb" data-cat="half" style="background-image: url('imagens/halfbody2.png');" onclick="changeImage(this, 'imagens/halfbody2.png')" aria-label="View halfbody2.png"></button>
+                                <button type="button" class="v-thumb" data-cat="full" style="background-image: url('imagens/fullbody1.png');" onclick="changeImage(this, 'imagens/fullbody1.png')" aria-label="View fullbody1.png"></button>
+                                <button type="button" class="v-thumb" data-cat="full" style="background-image: url('imagens/fullbody2.png');" onclick="changeImage(this, 'imagens/fullbody2.png')" aria-label="View fullbody2.png"></button>
+                                <button type="button" class="v-thumb" data-cat="ref" style="background-image: url('imagens/refsheetdelux1.png');" onclick="changeImage(this, 'imagens/refsheetdelux1.png')" aria-label="View refsheetdelux1.png"></button>
+                                <button type="button" class="v-thumb" data-cat="ref" style="background-image: url('imagens/refsheetdelux2.png');" onclick="changeImage(this, 'imagens/refsheetdelux2.png')" aria-label="View refsheetdelux2.png"></button>
+                                <button type="button" class="v-thumb" data-cat="ref" style="background-image: url('imagens/simpleref1.jpg');" onclick="changeImage(this, 'imagens/simpleref1.jpg')" aria-label="View simpleref1.jpg"></button>
+                                <button type="button" class="v-thumb" data-cat="ref" style="background-image: url('imagens/simpleref2.png');" onclick="changeImage(this, 'imagens/simpleref2.png')" aria-label="View simpleref2.png"></button>
                             </div>
                         </div>
                     </div>
 
                     <div id="page-commission" class="page-content">
-                        <form id="vgen-intake-form" action="https://formspree.io/f/mzdwjgrn" method="POST">
-                            <input type="hidden" name="_next" value="formspree-success.html">
+                        <!-- Netlify Forms -->
+                        <form id="vgen-intake-form" name="comissoes-kaiwhero" method="POST" data-netlify="true" action="/formspree-success.html">
+                            <input type="hidden" name="form-name" value="comissoes-kaiwhero">
+                            <input type="hidden" id="vgen-size-label" name="Commission Size Label" value="">
+                            <input type="hidden" id="vgen-total-input" name="Estimated Total" value="">
                             
                             <div class="vgen-layout">
                                 
@@ -89,7 +95,7 @@
                                         <div class="vgen-field-group">
                                             <div class="vgen-select-wrapper">
                                                 <label>Commission Type *</label>
-                                                <select id="vgen-type" name="Commission Type" onchange="handleTypeChange()">
+                                                <select id="vgen-type" name="Commission Type" onchange="handleTypeChange()" required>
                                                     <option value="" disabled selected hidden></option>
                                                     <option value="sketches">Sketches</option>
                                                     <option value="flat">Flat Colors</option>
@@ -104,8 +110,8 @@
                                             <div class="vgen-row-align">
                                                 <div class="vgen-select-wrapper">
                                                     <label>Commission Size / Options *</label>
-                                                    <select id="vgen-size" name="Commission Size" onchange="calculateTotal()">
-                                                        </select>
+                                                    <select id="vgen-size" name="Commission Size" required>
+                                                    </select>
                                                 </div>
                                                 <div id="vgen-size-price-addon" class="vgen-price-tag">+$0.00</div>
                                             </div>
@@ -176,7 +182,7 @@
                                         <span class="vgen-section-label">Contact</span>
                                         
                                         <div class="vgen-contact-row">
-                                            <div class="vgen-select-wrapper" style="flex: 0 0 160px;">
+                                            <div class="vgen-select-wrapper vgen-contact-method">
                                                 <label>Preferred Contact Method *</label>
                                                 <select name="Preferred Contact Method" id="vgen-pref-contact">
                                                     <option value="Telegram">Telegram</option>
@@ -267,7 +273,7 @@
                     <div id="page-contact" class="page-content">
                         <div class="section-title">― secure channels ―</div>
                         <div class="contact-channels">
-                            <div class="channel-box">Telegram: <a href="https://t.me/kaiwhero">@kaiwhero</a></div>
+                            <div class="channel-box">Telegram: <a href="https://t.me/kaiwhero" target="_blank" rel="noopener">@kaiwhero</a></div>
                             <div class="channel-box">Discord: kawaiihero.</div>
                         </div>
                     </div>
@@ -283,38 +289,36 @@
                         <span>artist</span>
                     </div>
                 </div>
-                
-              
-<div class="widget-box">
+                <div class="widget-box">
                     <div class="widget-title">social links</div>
                     <div class="social-grid-2x2">
-                        <a href="https://www.instagram.com/kaiwhero/" class="social-link">_ instagram</a>
-                        <a href="https://t.me/artkaiw" class="social-link">_ telegram</a>
-                        <a href="https://x.com/kaiwhero" class="social-link">_ twitter</a>
-                        <a href="https://www.patreon.com/kaiwhero" class="social-link">_ patreon</a>
+                        <a href="https://www.instagram.com/kaiwhero/" class="social-link" target="_blank" rel="noopener">_ instagram</a>
+                        <a href="https://t.me/artkaiw" class="social-link" target="_blank" rel="noopener">_ telegram</a>
+                        <a href="https://x.com/kaiwhero" class="social-link" target="_blank" rel="noopener">_ twitter</a>
+                        <a href="https://www.patreon.com/kaiwhero" class="social-link" target="_blank" rel="noopener">_ patreon</a>
                     </div>
                 </div>
                 <div class="widget-box">
                     <div class="widget-title">shop</div>
-                    <a href="shop.html" class="shop-widget-link">access market</a>
+                    <a href="shop.html" class="shop-widget-link">_ access market module</a>
                 </div>
                 <div class="widget-box queue-box">
                     <div class="widget-title">queue</div>
                     <div class="queue-items-container">
-                    <div class="queue-slot"><div class="slot-title"><span>01. Mackenzie/Annie</span> <span class="slot-status";>working</span></div></div>
-                    <div class="queue-slot"><div class="slot-title"><span>02. nera_piuma</span> <span class="slot-status">working</span></div></div>
-                    <div class="queue-slot"><div class="slot-title"><span>03. Crown</span> <span class="slot-status">waiting</span></div></div>
-                    <div class="queue-slot"><div class="slot-title"><span>04. aurakine_</span> <span class="slot-status" >waiting</span></div></div>
-                    <div class="queue-slot"><div class="slot-title"><span>05. Echo</span> <span class="slot-status" >waiting</span></div></div>
-                    <div class="queue-slot"><div class="slot-title"><span>06. Leona Snoh</span> <span class="slot-status">waiting</span></div></div>
-                    <div class="queue-slot"><div class="slot-title"><span>07. Zero M</span> <span class="slot-status" >waiting</span></div></div>
-                    <div class="queue-slot"><div class="slot-title"><span>08. Zero chance</span> <span class="slot-status" >waiting</span></div></div>
+                        <div class="queue-slot"><div class="slot-title"><span>01. Mackenzie/Annie</span> <span class="slot-status">working</span></div></div>
+                        <div class="queue-slot"><div class="slot-title"><span>02. Crown</span> <span class="slot-status">working</span></div></div>
+                        <div class="queue-slot"><div class="slot-title"><span>03. aurakine_</span> <span class="slot-status">waiting</span></div></div>
+                        <div class="queue-slot"><div class="slot-title"><span>04. Echo</span> <span class="slot-status">waiting</span></div></div>
+                        <div class="queue-slot"><div class="slot-title"><span>05. Leona Snoh</span> <span class="slot-status">waiting</span></div></div>
+                        <div class="queue-slot"><div class="slot-title"><span>06. Zero M</span> <span class="slot-status">waiting</span></div></div>
+                        <div class="queue-slot"><div class="slot-title"><span>07. Zero chance</span> <span class="slot-status">waiting</span></div></div>
                     </div>
                 </div>
             </aside>
 
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
